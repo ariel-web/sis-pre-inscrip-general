@@ -3,14 +3,20 @@
     <template v-if="inscrito === 1">
       <div style="width: 400px; text-align: center">
         <h2>Felicitaciones ya está pre-inscrito</h2>
-        
-        <br>
 
-        <div style="display: flex; justify-content: center;">
-          <a class="b-block" :href="'https://back-cepre.arielluqu3.com/api/constancia-pre-inscripcion/' + dniV">
+        <br />
+
+        <div style="display: flex; justify-content: center">
+          <a
+            class="b-block"
+            :href="
+              'https://back-admi.arielluqu3.com/api/constancia-pre-inscripcion-general/' +
+              dniV
+            "
+          >
             DESCARGAR CONSTANCIA DE PRE-INSCRIPCIÓN
           </a>
-      </div>
+        </div>
       </div>
     </template>
     <template v-if="inscrito === 2">
@@ -25,16 +31,9 @@
           pre-inscripccionres (Solo whatsapp 928845434)
         </h2>
 
-        
-        <n-button
-          class="b-block"
-          type="primary"
-          @click="atras"
-        >
-         ATRAS
+        <n-button class="b-block" type="primary" @click="atras">
+          ATRAS
         </n-button>
-
-        
       </div>
     </template>
 

@@ -38,8 +38,7 @@ class ApiService {
     return res.data.datos;
   };
   static guardaDatos = async (formData) => {
-    let res = await http.post("/pre-inscripcion/guardar", formData);
-
+    let res = await http.post("/pre-inscripcion-general/guardar", formData);
     return res.data;
   };
 
@@ -49,7 +48,7 @@ class ApiService {
   };
 
   static iniciarPreInscripcion = async (dni) => {
-    let res = await http.get("iniciar-pre-inscripcion/" + dni);
+    let res = await http.get("iniciar-pre-inscripcion-general/" + dni);
     return res.data;
   };
 
