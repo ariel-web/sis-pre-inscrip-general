@@ -259,7 +259,7 @@ export default {
         let codigo_pre = window.localStorage.getItem("codigo");
         let nombre = this.datos_personales.nombres+" "+this.datos_personales.primer_ap+" "+this.datos_personales.segundo_ap;
         window.open(
-            "https://back-cepre.arielluqu3.com/api/constancia-vocacional/" +
+            "https://back-admi.arielluqu3.com/api/constancia-vocacional2/" +
             codigo_pre +"/"+this.num_doc+this.programa+"/"+nombre  
         );
         this.showModal = false;
