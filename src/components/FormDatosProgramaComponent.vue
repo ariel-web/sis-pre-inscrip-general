@@ -62,7 +62,7 @@
         <label>Codigo certificado</label>
         <n-input
           style="text-transform: uppercase"
-          v-model:value="formData.constancia_codigo"
+          v-model:value="formData.codigo_constancia"
           placeholder="1vd123"
         />
       </n-grid-item>
