@@ -17,6 +17,22 @@
             DESCARGAR CONSTANCIA DE PRE-INSCRIPCIÓN
           </a>
         </div>
+
+        <br/>
+
+        <div style="display: flex; justify-content: center">
+          <a
+            class="b-block"
+            :href="
+              'https://back-admi.arielluqu3.com/api/constancia-pre-inscripcion-general-conadis/' +
+              dniV  
+            "
+          >
+            <b>
+              DESCARGAR CONSTANCIA DE PRE-INSCRIPCIÓN CONADIS
+            </b>
+          </a>
+        </div>
       </div>
     </template>
     <template v-if="inscrito === 2">
