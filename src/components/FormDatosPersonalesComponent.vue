@@ -640,7 +640,7 @@ const handleValidateClick = async (e) => {
               let res = await validarDatos();
               if (res.estado) {
                 emit("update:modelValue", formData.value);
-                emit("paso", 2);
+                emit("paso", 2); //CHANGED PASO
                 message.success("Paso Siguiente");
               } else {
                 message.error(res.mensaje);

@@ -11,7 +11,7 @@
             class="b-block"
             :href="
               'https://back-admi.arielluqu3.com/api/constancia-pre-inscripcion-general/' +
-              dniV
+              dniV  
             "
           >
             DESCARGAR CONSTANCIA DE PRE-INSCRIPCIÓN
@@ -27,8 +27,7 @@
         </h2>
         <h2>Vuelva a Intentarlo</h2>
         <h2>
-          Si el problema persiste comuniquese con el Administrador, solo para
-          pre-inscripccionres (Solo whatsapp 928845434)
+          Si el problema persiste comuniquese al facebook https://www.facebook.com/dadunapuno
         </h2>
 
         <n-button class="b-block" type="primary" @click="atras">
@@ -97,7 +96,7 @@ const initialize = async () => {
     window.localStorage.removeItem("tipo_doc");
     window.localStorage.removeItem("num_doc");
     window.localStorage.removeItem("codigo");
-
+    
     window.localStorage.removeItem("secuencia");
     window.localStorage.removeItem("fecha");
     window.localStorage.removeItem("monto");

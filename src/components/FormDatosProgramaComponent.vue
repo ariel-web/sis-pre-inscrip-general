@@ -16,6 +16,32 @@
         />
       </n-form-item>
 
+      <n-form-item path="modalidad" label="Modadlidad">
+        <n-select
+          v-model:value="formData.modalidad"
+          filterable
+          clearable
+          :options="modalidades"
+        />
+      </n-form-item>
+
+      <template
+        v-if="
+          formData.modalidad == 2
+        "
+      >
+        <n-form-item path="" label="Código discapacidad">
+          <n-input
+            v-model:value="formData.codigo_discapacidad"
+            style="text-transform: uppercase"
+            placeholder=""
+          />
+        </n-form-item>
+      </template>
+
+
+      
+
       <template
         v-if="
           formData.programa_estudios == 14 || formData.programa_estudios == 6
@@ -24,7 +50,7 @@
         <n-form-item path="codigo_medico" label="Código de examen medico">
           <n-input
             v-model:value="formData.codigo_medico"
-            style="text-transform: uppercase"
+            style=""
             placeholder=""
           />
         </n-form-item>
@@ -33,10 +59,9 @@
   </n-card>
 
   <n-card class="card-datos" title="ARCHIVOS">
-    <n-divider title-placement="left"> CERTIFICADO DE ESTUDIOS </n-divider>
 
     <n-grid cols="1 600:2" :x-gap="20">
-      <n-grid-item>
+      <!-- <n-grid-item>
         <n-divider title-placement="left">
           <small> Foto del postulante (JPG, PNG) </small>
         </n-divider>
@@ -51,19 +76,19 @@
             <n-image width="200" :src="fotoUrl" />
           </n-space>
         </template>
-      </n-grid-item>
+      </n-grid-item> -->
 
       <n-grid-item>
-        <n-divider title-placement="left">
-          <small> Certificado de estudios (PDF) </small>
-        </n-divider>
+       
+        <h4> Certificado de estudios (PDF) </h4>
+       
         <input type="file" accept=".pdf" @change="certificadoChange" />
         <div style="height: 10px"></div>
         <label>Codigo certificado</label>
         <n-input
-          style="text-transform: uppercase"
+          style=""
           v-model:value="formData.constancia_codigo"
-          placeholder="1vd123"
+          placeholder="N° de serie o Código virtual"
         />
       </n-grid-item>
     </n-grid>
@@ -235,6 +260,8 @@ const formData = ref({
   programa_estudios: "",
   codigo_medico: "",
   codigo_constancia: "",
+  modalidad: 1,
+  codigo_discapacidad:"",
 
   foto_postulante: null,
   certificado_estudios: null,
@@ -248,6 +275,17 @@ const formData = ref({
   },
 });
 
+const modalidades = [
+{
+    "value":1,
+    "label":"EXAMEN GENERAL"
+  },  
+  {
+    "value":2,
+    "label":"CONADIS"
+  }
+]
+
 const rules = {
   programa_estudios: {
     type: "number",
@@ -259,6 +297,12 @@ const rules = {
     required: true,
     message: "Obligatorio",
     trigger: ["blur", "input"],
+  },
+
+  modalidad: {
+    required: true,
+    message: "Obligatorio",
+
   },
 
   voucher_pago_medico: {
@@ -292,7 +336,7 @@ watch(
       preguntas.value = res;
     }
   }
-);
+);  
 
 //GET Distritos
 const getProgramasEstudios = async () => {
@@ -338,8 +382,6 @@ const guardarInscripcion = (e) => {
 
       if (certificadoUrl.value == null) {
         message.error("Certificado de estudios es obligatorio");
-      } else if (fotoUrl.value == null) {
-        message.error("La foto del postulante es obligatorio");
       } else {
         emit("update:modelValue", formData.value);
         emit("paso", 4);

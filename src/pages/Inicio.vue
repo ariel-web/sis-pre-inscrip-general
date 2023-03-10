@@ -203,7 +203,7 @@ const handleValidateClick = async (e) => {
   });
 };
 
-const recaptcha = ref(false);
+const recaptcha = ref(false); //CHANGED FOR SNAPCHAT
 const verifyMethod = async () => {
   recaptcha.value = true;
 };
