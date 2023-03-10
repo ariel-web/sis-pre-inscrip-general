@@ -87,7 +87,7 @@
         <label>Codigo certificado</label>
         <n-input
           style=""
-          v-model:value="formData.constancia_codigo"
+          v-model:value="formData.codigo_constancia"
           placeholder="N° de serie o Código virtual"
         />
       </n-grid-item>
